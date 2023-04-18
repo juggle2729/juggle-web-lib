@@ -1,0 +1,209 @@
+#app {
+  @siderbar-width: 140px;
+  @siderbar-left-width: 140px;
+  @header-height: 50px;
+  @bread-crumb-height: 40px;
+  @logo-icon-height: 38px;
+
+  @backgroud-color: #545c64;
+  @menuHover: #fff;
+  @main-color: #409eff;
+  @border: 1px solid #e6e6e6;
+
+  min-width: 1000px;
+
+  // 主体区域
+  .main-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+    margin-left: @siderbar-width;
+    transition: margin-left 0.28s;
+  }
+
+  // main-container全局样式
+  .app-main {
+    @margin: 16px;
+    position: relative;
+    margin: @margin;
+    margin-top: @header-height + @bread-crumb-height + @margin;
+    min-height: 100%;
+    background-color: white;
+    flex: 1;
+  }
+
+  .app-container {
+    position: relative;
+    padding: 20px;
+  }
+
+  // 侧边栏
+  .sidebar-container {
+    width: @siderbar-width;
+    position: fixed;
+    font-size: 0px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1001;
+    // overflow: hidden;
+    border-right: @border;
+
+    display: flex;
+    transition: width 0.28s;
+
+    a {
+      display: inline-block;
+      width: 100%;
+    }
+    .svg-icon {
+      margin-right: 16px;
+    }
+
+    .left {
+      position: relative;
+      z-index: 2;
+
+      display: flex;
+      padding-top: @header-height;
+      width: @siderbar-left-width;
+      height: 100%;
+      background-color: @backgroud-color;
+
+      .logo {
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-size: 20px;
+        width: 100%;
+        height: @header-height;
+        text-align: center;
+        border-bottom: @border;
+        .icon {
+          @mt: ((@header-height - @logo-icon-height) / 2);
+          transition: all 0.4s;
+          display: inline-block;
+
+          margin-top: @mt;
+          padding: 0 10px;
+          min-width: @logo-icon-height;
+          height: @logo-icon-height;
+          line-height: @logo-icon-height;
+
+          color: @main-color;
+          // background-color: white;
+          border-radius: 4px;
+
+          overflow: hidden;
+          cursor: pointer;
+        }
+        &:hover {
+          .icon {
+            color: white;
+            background-color: @main-color;
+          }
+        }
+      }
+
+      .el-menu {
+        border: none;
+      }
+
+      .el-menu-item.is-active {
+        background-color: #fff !important;
+      }
+    }
+  }
+
+  .sidebar-container .nest-menu .el-submenu > .el-submenu__title,
+  .sidebar-container .el-submenu .el-menu-item {
+    min-width: @siderbar-left-width;
+  }
+  
+
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: @siderbar-width;
+    right: 0;
+    z-index: 10;
+    min-width: 480px;
+    // background-color: @backgroud-color;
+    background-color: #fff;
+
+    padding: 0 20px;
+    // padding-right: 20px;
+    height: @header-height;
+    border-bottom: @border;
+
+    display: flex;
+    transition: left 0.28s;
+
+    .avatar-wrapper {
+      padding-right: 20px;
+      display: flex;
+      cursor: pointer;
+      font-size: 14px;
+      .nick-name {
+        margin-right: 10px;
+      }
+    }
+
+    .el-menu {
+      border: none;
+    }
+    .el-menu-item,
+    .el-submenu__title {
+      padding: 0 10px !important;
+      height: 50px;
+      line-height: 50px;
+  
+      span {
+        vertical-align: top;
+      }
+    }
+  }
+
+  .bread-crumb {
+    position: fixed;
+    top: @header-height;
+    left: @siderbar-width;
+    right: 0;
+    z-index: 10;
+    height: @bread-crumb-height;
+    line-height: @bread-crumb-height;
+    background-color: white;
+
+    padding: 0 20px;
+    border-bottom: 1px solid #dddddd;
+  }
+
+  .toggle-menu {
+    position: absolute;
+    top: 50%;
+    right: -16px;
+    z-index: 0;
+
+    font-size: 20px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 6px 0 6px 10px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+
+    cursor: pointer;
+    transition: all 0.4s linear;
+    transform: translateY(-50%);
+
+    & > i {
+      margin-right: -2px;
+      transition: all 0.15s linear;
+    }
+
+    &:hover {
+      right: -20px;
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+  }
+}

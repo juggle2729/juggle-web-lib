@@ -1,0 +1,63 @@
+{
+  "name": "@juggle/juggle-web-lib",
+  "version": "1.0.0",
+  "description": "juggle lib",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint --config .eslintrc.js --no-ignore",
+    "prepare": "husky install",
+    "autoPublish": "node ./publish.js"
+  },
+  "dependencies": {
+    "@juggle/juggle-LubanNo.7": "1.0.0-dev01",
+    "@popperjs/core": "^2.11.0",
+    "axios": "^0.21.1",
+    "element-plus": "1.0.2-beta.59",
+    "vuedraggable": "^4.1.0"
+  },
+  "peerDependencies": {
+    "@popperjs/core": "^2.11.0",
+    "axios": "^0.21.1",
+    "element-plus": "1.0.2-beta.59"
+  },
+  "repository": {
+    "type": "git",
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/vue3-essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.32.0",
+    "eslint-plugin-vue": "^7.18.0",
+    "husky": "^7.0.2",
+    "lint-staged": "^11.1.2",
+    "mrm": "^2.6.2",
+    "node-filter-async": "^2.0.0",
+    "pre-commit": "^1.2.2",
+    "shelljs": "^0.8.5"
+  },
+  "lint-staged": {
+    "*.{vue,js,ts,jsx,tsx}": [
+      "eslint --max-warnings 0 --fix"
+    ]
+  }
+}
